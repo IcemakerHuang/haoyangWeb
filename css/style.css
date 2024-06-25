@@ -281,7 +281,9 @@ section > p {
 
 
 /* 白色框按鈕樣式 */
-.white_outline_btn {
+
+/* https://codepen.io/johnheiner/pen/EyaLQW?editors=1100 */
+/* .white_outline_btn {
     background-color: transparent;
     border: 1px solid white;
     border-radius: 4px;
@@ -304,7 +306,102 @@ section > p {
     font-weight: 500;
     font-size: 1rem;
     letter-spacing: 0.08rem;
+} */
+.white_outline_btn {
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 8px 16px;
+    color: white;
+
+    font-family: Noto Sans TC;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.08rem;
+    cursor: pointer;
+  	text-transform: uppercase;
+  	text-decoration: none;
+	position: relative;
+    
+    overflow: hidden;
+	transition: all 250ms ease;
 }
+.white_outline_btn:after {
+    content: '';
+    z-index: -1;
+    width: 150%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    animation-name: bgout;
+    animation-duration:400ms;
+    transform: skew(-45deg) translate(-150%);
+}
+
+.white_outline_btn:hover {
+    color: white;
+}
+.white_outline_btn:hover:after {
+    animation-name: bgin;
+    transform: skew(-45deg) translate(-50%);
+}
+
+.btn_swipe {
+    border: 1px solid #e5e7e4;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+    color: #505959;
+    letter-spacing: 2px;
+    padding: 1.2em 2.2em;
+}
+.btn_swipe:hover {
+    color: #00d2ff;
+    box-shadow: 0 27px 55px rgba(0,0,0,0.3), 0 17px 17px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0);
+}
+
+@keyframes bgin{
+	from {
+		transform: skew(-45deg) translate(-150%);
+	}
+	to {
+		transform: skew(-45deg) translate(-50%);
+	}
+}
+@keyframes bgout{
+	from {
+		transform: skew(-45deg) translate(-50%);
+	}
+	to {
+		transform: skew(-45deg) translate(50%);
+	}
+}
+
+@keyframes bubbleIn{
+	from {
+		transform: scale(.9);
+		border-color: transparent;
+		opacity: 0;
+	}
+	to {
+		border-color: #abbabf;
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+@keyframes bubbleOut{
+	from {
+		border-color: #abbabf;
+		transform: scale(1);
+		opacity: 1;
+	}
+	to {
+		border-color: transparent;
+		transform: scale(1.2);
+		opacity: 0;
+	}
+}
+
 
 .nav_btn {
     background-color: transparent;
